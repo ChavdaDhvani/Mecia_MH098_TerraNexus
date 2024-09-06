@@ -1,0 +1,136 @@
+<%- layout("/layouts/boilerplate") %>
+    <title>Contact Form</title>
+    <style>
+          body {
+        background-image: url('https://cdn.pixabay.com/photo/2020/04/12/05/54/harvest-5032885_640.jpg');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+        .contact-form {
+            display: flex;
+            flex-wrap: wrap;
+            width: 90%;
+            max-width: 1000px;
+            background-color: #fff;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+            overflow: hidden;
+            align-items: center;
+        }
+
+        .form-left, .form-right {
+            padding: 40px 30px;
+            box-sizing: border-box;
+        }
+
+        .form-left {
+            flex: 1;
+            background: #ffffff;
+            min-width: 300px;
+        }
+
+        .form-left h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .form-left input, .form-left textarea {
+            width: 96%;
+            margin-bottom: 15px;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .form-left textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        .form-left button {
+            width: 100%;
+            padding: 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .form-left button:hover {
+            background-color: #0056b3;
+            box-shadow: 0 5px 15px rgba(0, 91, 187, 0.4);
+        }
+
+        .form-right {
+            
+            backdrop-filter: blur(10px);
+            backface-visibility: calc(40px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            color: #141313;
+            min-width: 300px;
+        }
+
+        .form-right h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #fff;
+        }
+
+        .form-right p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .form-right p strong {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-form {
+                flex-direction: column;
+            }
+
+            .form-left, .form-right {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-form">
+        <div class="form-left">
+            <h2>Get in touch</h2>
+            <form action="#">
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="text" name="subject" placeholder="Subject" required>
+                <textarea name="message" placeholder="Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+        <div class="form-right">
+            <h2>Contact us</h2>
+            <p><strong>Address:</strong> 198 West 21th Street, Suite 721 New York NY 10016</p>
+            <p><strong>Phone:</strong> +1235 2355 98</p>
+            <p><strong>Email:</strong> info@yoursite.com</p>
+            <p><strong>Website:</strong> yoursite.com</p>
+        </div>
+    </div>
+</body>
+</html>

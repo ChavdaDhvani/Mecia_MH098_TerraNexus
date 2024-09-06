@@ -1,0 +1,78 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <style>
+        .card-img-top {
+            object-fit: cover;
+            height: 300px; /* Adjust as needed */
+            width: 100%; /* Ensure the image fills the card width */
+        }
+        .container {
+            margin-top: 90px;
+        }
+    </style>
+    <div class="container">
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <img src="<%= listing.image_url %>" class="card-img-top" alt="<%= listing.crop_name %>">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= listing.crop_name %></h5>
+                        <p class="card-text">
+                            <strong>Type:</strong> <%= listing.crop_type %><br>
+                            <strong>Quantity:</strong> <%= listing.required_quantity %> kg<br>
+                            <strong>Price Range:</strong> &#x20b9 <%= listing.price_range_min %> - &#x20b9 <%= listing.price_range_max %> per kg<br>
+                            <strong>Quality:</strong> <%= listing.quality_required %><br>
+                            <strong>Location Preference:</strong> <%= listing.location_preference %><br>
+                            <strong>Deadline:</strong> <%= new Date(listing.deadline).toDateString() %><br>
+                        </p>
+                        <hr>
+                        <h6>Vendor Details:</h6>
+                        <p>
+                            <strong>Company:</strong> <%= vendor.company_name %><br>
+                            <strong>Contact:</strong> <%= vendor.contact_person %><br>
+                            <strong>Email:</strong> <%= vendor.email %><br>
+                            <strong>Phone:</strong> <%= vendor.phone_number %><br>
+                            <strong>Location:</strong> <%= vendor.location %><br>
+                            <strong>Business Type:</strong> <%= vendor.business_type %>
+                            <br>
+                            <p>
+                                <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+                                    Book a Slot
+                                </button>
+                              </p>
+                              <div style="min-height: 120px;">
+                                <div class="collapse collapse-horizontal" id="collapseWidthExample">
+                                  <div class="card card-body" style="width: 300px;">
+                                    When a farmer clicks 'Book a Slot,' the vendor will handle the harvesting and collection of the farmer's product after verifying its quality.
+                                  </div>
+                                </div>
+                              </div>
+                            <form action="/listings/<%= listing.vendor_id %>?_method=DELETE" method="post" style="display:inline;">
+                               
+                               
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                        <button type="submit" class="btn btn-success">Delete</button>
+                                </div>
+                             
+                            </form>
+                            
+                            
+                            
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <a href="/listings" class="btn btn-success"">Back to Listings</a>
+        <br>
+        <br>
+    
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>

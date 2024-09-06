@@ -1,0 +1,101 @@
+<%- layout("/layouts/boilerplate") %>
+<style>
+    body {
+        background-image: url('https://cdn.pixabay.com/photo/2020/04/12/05/54/harvest-5032885_640.jpg');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    
+    .card {
+        max-width: 400px;
+        margin: auto;
+        margin-top: 50px;
+        background-image: url('https://th.bing.com/th/id/OIP.e0y1oFU00u6ZQQNLnVgU4gHaEK?w=325&h=182&c=7&r=0&o=5&dpr=2&pid=1.7');
+        background-size: cover;
+        background-position: center;
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Updated box-shadow */
+    }
+    .card-body {
+        background: rgba(0, 0, 0, 0.6);
+        padding: 20px;
+        border-radius: 8px;
+        color: #fff;
+    }
+    .card-title {
+        color: #fff;
+    }
+    .form-control {
+        background-color: rgba(255, 255, 255, 0.8);
+        border: none;
+        color: #000;
+    }
+    .btn-primary {
+        background-color: #28a745; /* Green color */
+        border-color: #28a745; /* Green color */
+    }
+    .btn-primary:hover {
+        background-color: #218838; /* Dark green color */
+        border-color: #1e7e34; /* Darker green color */
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+           
+            <div class="card-body">
+                <h1 class="card-title">Vendor Registration</h1>
+                <form action="/register_vendor" method="POST">
+                    <div class="form-group">
+                        <label for="company_name">Company Name</label>
+                        <input type="text" class="form-control" id="company_name" name="company_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact_person">Contact Person</label>
+                        <input type="text" class="form-control" id="contact_person" name="contact_person" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone_number">Phone Number</label>
+                        <input type="text" class="form-control" id="phone_number" name="phone_number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" class="form-control" id="location" name="location" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="business_type">Business Type</label>
+                        <select class="form-control" id="business_type" name="business_type" required>
+                            <option value="">Select Business Type</option>
+                            <option value="Retailer">Retailer</option>
+                            <option value="Wholesaler">Wholesaler</option>
+                            <option value="Processor">Processor</option>
+                            <option value="Distributor">Distributor</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <br>
+                    <button class="btn btn-success" type="submit">Register</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

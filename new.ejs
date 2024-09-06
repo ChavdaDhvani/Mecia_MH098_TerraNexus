@@ -1,0 +1,152 @@
+<%- layout("/layouts/boilerplate") %>
+<style>
+    body {
+        background-image: url('https://cdn.pixabay.com/photo/2020/04/12/05/54/harvest-5032885_640.jpg');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .card {
+        max-width: 500px;
+        margin: auto;
+        margin-top: 10px;
+        background-image: url('https://th.bing.com/th/id/OIP.e0y1oFU00u6ZQQNLnVgU4gHaEK?w=325&h=182&c=7&r=0&o=5&dpr=2&pid=1.7');
+        background-size: cover;
+        background-position: center;
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-body {
+        background: rgba(0, 0, 0, 0.7); /* Black background with transparency */
+        padding: 20px;
+        border-radius: 8px;
+        color: #fff;
+    }
+
+    .card-title {
+        color: #fff;
+    }
+
+    .form-control {
+        background-color: rgba(255, 255, 255, 0.8);
+        border: none;
+        color: #000;
+    }
+
+    .btn-success {
+        background-color: #28a745; /* Green button */
+        border-color: #28a745;
+    }
+
+    .btn-success:hover {
+        background-color: #218838;
+        border-color: #1e7e34;
+    }
+
+    #image_preview {
+        max-width: 100%;
+        margin-top: 10px;
+        display: none;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title">Create New Listing</h1>
+                <form action="/listings" method="POST">
+                    <div class="form-group">
+                        <label for="vendor_id">Vendor ID</label>
+                        <input type="text" class="form-control" id="vendor_id" name="vendor_id" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="crop_name">Crop Name</label>
+                        <input type="text" class="form-control" id="crop_name" name="crop_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="crop_type">Crop Type</label>
+                        <select class="form-control" id="crop_type" name="crop_type" required>
+                            <option value="">Select Crop Type</option>
+                            <option value="Grains">Grains</option>
+                            <option value="Vegetables">Vegetables</option>
+                            <option value="Fruits">Fruits</option>
+                            <option value="Legumes">Pulses</option>
+                            <option value="Nuts">Nuts</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="required_quantity">Required Quantity (kg)</label>
+                        <input type="number" class="form-control" id="required_quantity" name="required_quantity" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="price_range_min">Price Range Minimum</label>
+                        <input type="number" class="form-control" id="price_range_min" name="price_range_min" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="price_range_max">Price Range Maximum</label>
+                        <input type="number" class="form-control" id="price_range_max" name="price_range_max" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="quality_required">Quality Required</label>
+                        <input type="text" class="form-control" id="quality_required" name="quality_required" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="location_preference">Location Preference</label>
+                        <input type="text" class="form-control" id="location_preference" name="location_preference" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="deadline">Deadline</label>
+                        <input type="date" class="form-control" id="deadline" name="deadline" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="image_url">Image</label>
+                        <select class="form-control" id="image_url" name="image_url">
+                            <option value="">Select Image</option>
+                            <option value="Banana" data-image-url="https://cdn.wikifarmer.com/wp-content/uploads/2023/04/Banana-Crop-History-Nutritional-Value-and-Health-Benefits.jpg">Bananas</option>
+                            <option value="Onion" data-image-url="https://www.thespruce.com/thmb/9sCTW3me2_CbsrHfgpusH2KwV68=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/growing-onions-1403447-01-38d480a2d16d4ea0b0dd174f42785e1d.jpg">Onion</option>
+                            <option value="Potato" data-image-url="https://cdn.pixabay.com/photo/2014/08/06/20/32/potatoes-411975_640.jpg">Potato</option>
+                            <option value="Grapes" data-image-url="https://www.foodrepublic.com/img/gallery/15-types-of-grapes-to-know-eat-and-drink/l-intro-1684769284.jpg">Grapes</option>
+                            <option value="Chili" data-image-url="https://thumbs.dreamstime.com/b/red-green-chilies-tree-growing-vegetable-garden-36951910.jpg">Chili</option>
+                            <option value="Cotton" data-image-url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoGCyU2qbZgWBmrLZaj8MdoraEDuEhlQ57-A&s">Cotton</option>
+                            <option value="Groundnut" data-image-url="https://www.zettafarms.com/wp-content/uploads/2024/01/blog-3.jpg">Groundnut</option>
+                            <option value="Tobacco" data-image-url="https://imageio.forbes.com/blogs-images/andrebourque/files/2019/03/tob-plant2-1900-1200x804.jpg?format=jpg&height=900&width=1600&fit=bounds">Tobacco</option>
+                            <option value="Peppers" data-image-url="https://media.istockphoto.com/id/530253685/photo/bell-pepper.jpg?s=612x612&w=0&k=20&c=ghVRWJFGfSzjbs36M7YTp4Ka-r7vZgXM-6dMnwtzTqc=">Peppers</option>
+                            <option value="Chana" data-image-url="https://numerical.co.in/uploads/file-1624753808347.jpg">Chana</option>
+                        </select>
+                        <img id="image_preview" src="" alt="Image Preview">
+                    </div>
+                    <br>
+                    <button class="btn btn-success" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+   
+    <script>
+        document.getElementById('image_url').addEventListener('change', function() {
+            var selectedOption = this.options[this.selectedIndex];
+            var imageUrl = selectedOption.getAttribute('data-image-url');
+            
+            var previewImg = document.getElementById('image_preview');
+            if (imageUrl) {
+                previewImg.src = imageUrl;
+                previewImg.style.display = 'block';
+            } else {
+                previewImg.style.display = 'none';
+            }
+        });
+    </script>
+</body>

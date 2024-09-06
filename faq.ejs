@@ -1,0 +1,195 @@
+<%- layout("/layouts/boilerplate") %>
+<!-- Font Awesome for Search Icon -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-2Fz/C7on3mi0O8SxjZCy7TS2lZX9A6SaV9gTYk6T4nDDTtGofAN1v6/3Awc1m6cFVpKv7W1t5RBFfrQmbF1Nw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+       
+        background-color: #f4f4f9;
+    }
+
+    .faq-background {
+        background-image: url('https://wallpaperaccess.com/full/1729022.jpg');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        
+     
+        
+    }
+
+    .faq-section {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 60px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        max-width: 900px;
+        margin: auto;
+        margin-top: 15%;
+    }
+
+    .faq-section h1 {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+        text-align: center;
+        color: #333;
+    }
+
+    .faq-question {
+        cursor: pointer;
+        font-weight: bold;
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+        color: #333;
+        transition: color 0.3s ease;
+    }
+
+    .faq-question:hover {
+        color: #007bff;
+    }
+
+    .faq-answer {
+        display: none;
+        margin-bottom: 30px;
+        font-size: 1rem;
+        color: #555;
+    }
+
+    .faq-answer.show {
+        display: block;
+    }
+
+    .search-bar {
+        margin-bottom: 30px;
+        position: relative;
+    }
+
+    .search-bar input {
+        border-radius: 20px;
+        padding-left: 35px;
+        border: 1px solid #ddd;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .search-bar input:focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    .search-bar .fa-search {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #007bff;
+    }
+</style>
+
+<title>FAQ - Heartland Farms</title>
+</head>
+
+<body>
+
+    <div class="faq-background">
+        <div class="container faq-section">
+            <h1 class="text-center mb-5">FAQs</h1>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+
+                    <!-- Search Bar -->
+                    <div class="search-bar">
+                        <i class="fa fa-search"></i>
+                        <input type="text" class="form-control" placeholder="Search FAQs..." onkeyup="searchFAQ()">
+                    </div>
+
+                    <div id="faq-container">
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleAnswer(1)">
+                                What types of crops do you grow?
+                            </div>
+                            <div class="faq-answer" id="answer-1">
+                                We grow a variety of crops including grains, pulses, fruits, vegetables, and spices. Our selection depends on the season and market demand.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleAnswer(2)">
+                                How can I get in touch with you for more information?
+                            </div>
+                            <div class="faq-answer" id="answer-2">
+                                You can reach us through the contact form on our <a href="/contact.html">Contact Us</a> page, or email us directly at info@heartlandfarms.com.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleAnswer(3)">
+                                Do you offer farm tours?
+                            </div>
+                            <div class="faq-answer" id="answer-3">
+                                Yes, we offer guided tours of our farm. Please contact us in advance to schedule a visit.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleAnswer(4)">
+                                Are your products organic?
+                            </div>
+                            <div class="faq-answer" id="answer-4">
+                                We strive to use sustainable practices and minimize the use of synthetic chemicals. Some of our products are certified organic. Please check product labels for specific details.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleAnswer(5)">
+                                How can I purchase your products?
+                            </div>
+                            <div class="faq-answer" id="answer-5">
+                                Our products are available at local markets and through our online store. Visit our <a href="/features.html">Features</a> page for more details on purchasing options.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+
+    <!-- Custom Script for FAQ Toggle and Search -->
+    <script>
+        function toggleAnswer(id) {
+            var answer = document.getElementById('answer-' + id);
+            answer.classList.toggle('show');
+        }
+
+        function searchFAQ() {
+            var input, filter, faqContainer, faqItems, question, i, txtValue;
+            input = document.querySelector('.search-bar input');
+            filter = input.value.toLowerCase();
+            faqContainer = document.getElementById("faq-container");
+            faqItems = faqContainer.getElementsByClassName("faq-item");
+
+            for (i = 0; i < faqItems.length; i++) {
+                question = faqItems[i].getElementsByClassName("faq-question")[0];
+                txtValue = question.textContent || question.innerText;
+                if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                    faqItems[i].style.display = "";
+                } else {
+                    faqItems[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
